@@ -1,0 +1,102 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrition Facts</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="static/css/styles.css">
+</head>
+<body>
+    <!-- Input Panel -->
+    <div class="inputPanel">
+        <h1>What do you want to eat?</h1>
+        <form class="inputForm" method="POST">
+            <input type="text" id="foodChoice" name="foodChoice" placeholder="enter your choice" required>
+            <button type="submit" id="submitBtn">Submit</button>
+            <p id="errorMessage"></p>
+        </form>
+    </div>
+
+    <!-- Results Header -->
+    <div response="{{response}}" class="resultsHeader" id="resultsHeader">
+        <h1>Nutrition Facts</h1>
+    </div>
+
+    <!-- Results Panel -->
+    <div class="resultsPanel" id="resultsPanel"></div>
+
+    <!-- Compare Button Panel -->
+    <div id="compareBtnPanel" class="compareBtnPanel">
+        <button id="compareBtn">Compare</button>
+    </div>
+
+    <!-- Comparison Table -->
+    <table class="comparisonTable" id="comparisonTable">
+        <tbody>
+            <!-- Nutritional information will be displayed here -->
+        </tbody>
+    </table>
+
+    <!-- JavaScript for dynamic content generation -->
+    <script>
+        // Get references to DOM elements
+        var resultsHeader = document.getElementById("resultsHeader");
+        var resultsPanel = document.getElementById("resultsPanel");
+        var compareBtnPanel = document.getElementById("compareBtnPanel");
+
+        // Get the number of items and nutrition data from the response attribute
+        var items = parseInt("{{numberOfItems}}");
+        if (items !== items) items = 0; // Handle NaN case
+        var response = resultsHeader.getAttribute('response');
+        var nutritionList = JSON.parse(response.replaceAll("'", '"'));
+
+        // Display appropriate sections based on the number of items
+        if (items > 0) {
+            resultsHeader.style.display = "flex";
+            resultsPanel.style.display = "flex";
+            compareBtnPanel.style.display = "flex"
+        }
+
+        // Loop through nutritionList to generate box elements
+        nutritionList.forEach(foodItem => {
+            var box = document.createElement('div');
+            box.classList.add("box");
+            box.setAttribute("itemFacts", JSON.stringify(foodItem));
+            resultsPanel.appendChild(box);
+
+            var boxHeader = document.createElement('h3');
+            boxHeader.textContent = foodItem.name; // Use the food item name as the header text
+            box.appendChild(boxHeader);
+
+            // Add nutritional information for each food item
+            addInfo("Calories: " + foodItem.calories, box);
+            addInfo("Serving Size (g): " + foodItem.serving_size_g, box);
+            addInfo("Fat (g): " + foodItem.fat_total_g, box);
+            addInfo("Saturated Fat (g): " + foodItem.fat_saturated_g, box);
+            addInfo("Protein (g): " + foodItem.protein_g, box);
+            addInfo("Sodium (mg): " + foodItem.sodium_mg, box);
+            addInfo("Potassium (mg): " + foodItem.potassium_mg, box);
+            addInfo("Cholesterol (mg): " + foodItem.cholesterol_mg, box);
+            addInfo("Total Carbohydrates (g): " + foodItem.carbohydrates_total_g, box);
+            addInfo("Fiber (g): " + foodItem.fiber_g, box);
+            addInfo("Sugar (g): " + foodItem.sugar_g, box);
+
+        });
+
+        // Function to add nutritional information to a box
+        function addInfo(info, box) {
+            var section = document.createElement('p');
+            section.innerHTML = info;
+            box.appendChild(section);
+        }
+    </script>
+
+    <!-- Additional JavaScript for behavior -->
+    <script type="text/javascript" src="static/js/script.js"></script>
+</body>
+</html>

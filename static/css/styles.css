@@ -1,0 +1,135 @@
+/* Reset default styles and set font */
+body {
+    font-family: 'Barlow', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Styling for the input panel */
+.inputPanel {
+    display: flex;
+    height: 80vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputPanel h1 {
+    font-weight: 100;
+    margin: 0;
+}
+
+.inputPanel p {
+    display: inline-block;
+    margin-left: 10px;
+    color: red;
+}
+
+/* Styling for the results header */
+.resultsHeader {
+    display: none;
+    height: 20vh;
+    background-color: rgb(42, 168, 80);
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.resultsHeader h1 {
+    font-weight: 100;
+    color: white;
+}
+
+/* Styling for the results panel */
+.resultsPanel {
+    display: none;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+/* Styling for the compare button panel */
+.compareBtnPanel {
+    display: none;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.compareBtnPanel button {
+    font-size: larger;
+    width: 15vw;
+    margin-top: 15vh;
+}
+
+/* Styling for each box element */
+.box {
+    width: 20vw;
+    margin: 10px;
+    margin-top: 30px;
+    padding: 15px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+    transition: transform 0.2s;
+}
+
+/* Styling for selected boxes */
+.boxSelected {
+    background-color: rgb(42, 168, 80);
+    transform: scale(0.9);
+}
+
+/* Hover effect for boxes */
+.box:hover {
+    background-color: lightgreen;
+}
+
+/* Styling for input elements */
+input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Styling for buttons */
+button {
+    padding: 8px 16px;  
+    margin-left: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Hover effect for buttons */
+button:hover {
+    background-color: #45a049;
+}
+
+/* Styling for comparison tables */
+.comparisonTable {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #ddd;
+    margin-top: 20px;
+}
+
+/* Styling for table header cells */
+.comparisonTable th {
+    background-color: #f2f2f2;
+    padding: 8px;
+    text-align: left;
+}
+
+/* Styling for table data cells */
+.comparisonTable td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Apply alternate background color to table rows */
+.comparisonTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
