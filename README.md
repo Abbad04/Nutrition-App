@@ -73,4 +73,5 @@ The JavaScript code injected within the `index.html` file primarily focuses on g
 
 ## Demo
 
-Take a look at it [Here](Abbad04.pythonanywhere.com)
+Take a look at it [Here](http://abbad04.pythonanywhere.com/)
+
