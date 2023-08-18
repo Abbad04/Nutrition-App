@@ -13,9 +13,8 @@ A web application that allows users to retrieve and compare nutrition facts for 
 - [Behavior (JavaScript)](#behavior-javascript)
   - External JavaScript
   - Injected JavaScript
-- [Contributing](#contributing)
-- [License](#license)
-
+- [Demo](#Demo)
+  
 ## Introduction
 
 The Nutrition Facts Web App is designed to provide users with information about the nutritional content of various food items. It utilizes the Flask framework for the backend and features a user-friendly web interface for input and data presentation.
@@ -71,3 +70,7 @@ The `script.js` file contains the main behavior of the web application. It inclu
 ### Injected JavaScript
 
 The JavaScript code injected within the `index.html` file primarily focuses on generating dynamic content based on API responses and user interactions. It retrieves the number of items and nutrition data from the API response, displays appropriate sections, generates box elements for displaying nutrition information, and adds nutritional information to each box.
+
+## Demo
+
+Take a look at it: Abbad04.pythonanywhere.com
